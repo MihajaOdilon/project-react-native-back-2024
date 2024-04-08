@@ -1,19 +1,20 @@
 package com.example.vente.entites;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class VenteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false , unique = true)
     private Long numProduit;
+    @Column(nullable = false)
     private String design;
+    @Column(nullable = false)
     private Double prix;
-    private int quantite;
+    @Column(nullable = false)
+    private Integer quantite;
 
     public Long getNumProduit() {
         return numProduit;
@@ -39,19 +40,19 @@ public class VenteEntity {
         this.prix = prix;
     }
 
-    public int getQuantite() {
+    public Integer getQuantite() {
         return quantite;
     }
 
-    public void setQuantite(int quantite) {
+    public void setQuantite(Integer quantite) {
         this.quantite = quantite;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
